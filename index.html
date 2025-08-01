@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="/res/css/layout.css">
     <link rel="stylesheet" href="/res/css/tester.css">
     <link rel="stylesheet" href="/res/css/meta.css">
-    <link rel="stylesheet" href="/res/css/a11y.css">
     <link rel="stylesheet" href="/res/css/dashboard.css">
 
 </head>
@@ -95,10 +94,10 @@
                             <div><strong>Component Tester</strong><small class="d-block text-secondary">Live HTML/CSS/JS
                                     Sandbox</small></div>
                         </a>
-                        <a href="#a11y-checker" class="nav-link quick-access-item" data-target="a11y-checker"><i
+                        <a href="#meta-tag-preview" class="nav-link quick-access-item" data-target="meta-tag-preview"><i
                                 class="fa-brands fa-accessible-icon text-info"></i>
-                            <div><strong>A11y Checker</strong><small class="d-block text-secondary">Audit for
-                                    Accessibility</small></div>
+                            <div><strong>Meta Tag Previewer</strong><small class="d-block text-secondary">Preview
+                                    Meta Tags</small></div>
                         </a>
                     </div>
                 </div>
@@ -602,84 +601,6 @@
             </div>
         </div>
 
-        <!-- ===== PAGE: Accessibility Checker ===== -->
-        <div id="a11y-checker" class="page">
-            <div class="page-header">
-                <h1>Accessibility Checker</h1>
-            </div>
-
-            <div class="row g-4">
-                <!-- ==== LEFT COLUMN: INPUT & CONTROLS ==== -->
-                <div class="col-lg-4">
-                    <div class="card bg-card">
-                        <div class="card-header">
-                            <h5>Analysis Target</h5>
-                        </div>
-                        <div class="card-body">
-                            <!-- Tab Navigation -->
-                            <ul class="nav nav-pills mb-3" id="a11y-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="url-tab" data-bs-toggle="tab"
-                                        data-bs-target="#url-panel" type="button" role="tab">Check by URL</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="code-tab" data-bs-toggle="tab"
-                                        data-bs-target="#code-panel" type="button" role="tab">Check Code
-                                        Snippet</button>
-                                </li>
-                            </ul>
-
-                            <!-- Tab Content -->
-                            <div class="tab-content" id="a11y-tab-content">
-                                <!-- URL Panel -->
-                                <div class="tab-pane fade show active" id="url-panel" role="tabpanel">
-                                    <label for="a11y-url-input" class="form-label">Enter a live website URL:</label>
-                                    <div class="input-group">
-                                        <input type="url" class="form-control" id="a11y-url-input"
-                                            placeholder="https://example.com">
-                                    </div>
-                                </div>
-                                <!-- Code Panel -->
-                                <div class="tab-pane fade" id="code-panel" role="tabpanel">
-                                    <label for="a11y-code-input" class="form-label">Paste your HTML snippet:</label>
-                                    <textarea class="form-control" id="a11y-code-input" rows="10"
-                                        placeholder="<img src='...'>"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="d-grid mt-3">
-                                <button class="btn btn-primary btn-lg" id="run-a11y-check-btn">
-                                    <i class="fa-solid fa-bolt me-2"></i>Run Check
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== RIGHT COLUMN: RESULTS ==== -->
-                <div class="col-lg-8">
-                    <div class="card bg-card">
-                        <div class="card-header">
-                            <h5>Accessibility Report</h5>
-                        </div>
-                        <div class="card-body" id="a11y-results-container">
-                            <div class="text-center text-secondary p-5" id="a11y-placeholder">
-                                <i class="fa-brands fa-accessible-icon fa-3x mb-3"></i>
-                                <p>Results of your accessibility check will appear here.</p>
-                            </div>
-                            <div id="a11y-loading-spinner" class="text-center p-5" style="display: none;">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
-                                <p class="mt-2">Analyzing the page...</p>
-                            </div>
-                            <!-- Results Accordion will be injected here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- ===== PAGE: Meta Tag Previewer ===== -->
         <div id="meta-tag-preview" class="page">
             <div class="page-header">
@@ -795,7 +716,6 @@
     <script src="/res/js/layout.js" type="module"></script>
     <script src="/res/js/tester.js" type="module"></script>
     <script src="/res/js/meta.js" type="module"></script>
-    <script src="/res/js/a11y.js" type="module"></script>
     <script src="/res/js/dashboard.js" type="module"></script>
     <script src="/res/js/main.js" type="module"></script>
 </body>
