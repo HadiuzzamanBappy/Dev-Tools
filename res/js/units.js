@@ -6,7 +6,7 @@ export function initializeUnitSystemGenerator() {
 
     // --- State Management ---
     const state = {
-        spacing: { base: 8, multiplier: 1.5, steps: 10, prefix: 'sp' },
+        spacing: { base: 8, multiplier: 1.5, steps: 10, prefix: 'dt' },
         radius: { unit: 'px', isLinked: true, all: 16, tl: 16, tr: 16, br: 16, bl: 16 },
     };
 
