@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* --- CSS Variables for Theming --- */
+:root {
+    --sidebar-width: 260px;
+    --primary-color: #3b82f6;
+    --transition-speed: 0.3s;
+    .card{
+        --bs-card-bg:var(--card-bg);
+        color: var(--body-color);
+    }
+}
+
+/* Light Theme (Default) */
+body:not(.dark-mode) {
+    --sidebar-bg: #111827;
+    --main-bg: #f4f7fa;
+    --card-bg: #ffffff;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-on-dark: #e5e7eb;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-color: #e5e7eb;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    --sidebar-bg: #1f2937;
+    --main-bg: #111827;
+    --card-bg: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-on-dark: #e5e7eb;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --border-color: #4b5563;
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* --- Sidebar Layout --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--text-on-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: transform var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.sidebar-header h2 { font-size: 1.5rem; font-weight: 700; margin-left: 0.75rem; }
+.sidebar-header .logo-icon { font-size: 1.8rem; color: var(--primary-color); }
+
+/* --- Sidebar Navigation --- */
+.sidebar-nav { list-style: none; padding-left: 0; flex-grow: 1; }
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #d1d5db;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sidebar-nav li a:hover { background-color: #374151; color: #ffffff; }
+.sidebar-nav li a.active { background-color: var(--primary-color); color: #ffffff; font-weight: 600; }
+.sidebar-nav li a i { width: 30px; text-align: center; margin-right: 0.75rem; font-size: 1.1rem; }
+
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-on-dark);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.theme-toggle:hover { background: rgba(255, 255, 255, 0.2); }
+.theme-toggle .icon { font-size: 1.2rem; }
+.theme-toggle .moon-icon { display: none; }
+body.dark-mode .moon-icon { display: block; }
+body.dark-mode .sun-icon { display: none; }
+
+/* --- Mobile Menu Toggle --- */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1001;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+    margin-left: var(--sidebar-width);
+    transition: margin-left var(--transition-speed) ease-in-out;
+}
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.page-header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+
+/* --- Dashboard Stats Grid --- */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.stat-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-speed) ease;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
+.stat-card .icon { font-size: 2rem; padding: 1rem; border-radius: 50%; margin-right: 1.5rem; }
+.stat-card .value { font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+.stat-card .label { font-size: 0.9rem; color: var(--text-secondary); }
+.icon-tools { background-color: #dbeafe; color: #3b82f6; }
+.icon-projects { background-color: #d1fae5; color: #10b981; }
+.icon-snippets { background-color: #fee2e2; color: #ef4444; }
+.icon-score { background-color: #fef3c7; color: #f59e0b; }
+
+/* --- Tool Placeholders --- */
+.tool-placeholder {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: background-color var(--transition-speed) ease;
+}
+.tool-placeholder i { font-size: 4rem; color: #d1d5db; margin-bottom: 1rem; }
+.tool-placeholder h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+.tool-placeholder p { color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.show { transform: translateX(0); }
+    .main-content { margin-left: 0; padding: 1.5rem; padding-top: 5rem; }
+    .menu-toggle { display: block; }
+    .page-header h1 { font-size: 1.8rem; }
+}
+
+@media (max-width: 576px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-card { padding: 1rem; }
+    .stat-card .value { font-size: 1.5rem; }
+    .tool-placeholder { padding: 1.5rem; }
+}

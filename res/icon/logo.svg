@@ -1,0 +1,17 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Grid Base -->
+  <rect x="25" y="25" width="150" height="50" rx="8" fill="none" stroke="#2563eb" stroke-width="2"/>
+  
+  <!-- Tool Modules -->
+  <rect x="40" y="35" width="25" height="25" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="75" y="35" width="25" height="25" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="110" y="35" width="25" height="25" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="145" y="35" width="25" height="25" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  
+  <!-- Gear Tool -->
+  <path d="M50 50a5 5 0 1 0 10 0 5 5 0 0 0-10 0z" fill="#22c55e"/>
+  <path d="M50 50l-3-8h6l-3 8z" fill="#2563eb"/>
+  
+  <!-- Text -->
+  <text x="100" y="85" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#1e293b">DevTools</text>
+</svg>

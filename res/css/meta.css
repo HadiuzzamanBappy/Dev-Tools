@@ -1,0 +1,90 @@
+/* css/meta.css */
+
+/* --- Meta Tag Previewer Specific Styles --- */
+#meta-tag-preview .form-label { font-weight: 500; }
+#meta-tag-preview .form-control, 
+#meta-tag-preview .input-group-text {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+#meta-tag-preview .form-text { color: var(--text-secondary); }
+
+/* --- Live Counters --- */
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+}
+.char-counter.is-over { color: #dc3545; font-weight: bold; }
+
+/* --- General Preview Card Styling --- */
+.preview-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: var(--card-bg); /* Use theme variable */
+}
+
+/* --- Google Preview --- */
+.google-preview { padding: 1rem; }
+.google-header { display: flex; align-items: center; margin-bottom: 4px; }
+.google-favicon { width: 18px; height: 18px; margin-right: 8px; border-radius: 50%; }
+.google-url { font-size: 14px; color: var(--text-secondary); }
+.google-title { font-size: 20px; color: #8ab4f8; /* Google's link color works well in both modes */ font-weight: normal; margin-bottom: 4px; line-height: 1.3; }
+.google-description { font-size: 14px; color: var(--text-primary); line-height: 1.5; opacity: 0.9; }
+
+/* --- Twitter Preview --- */
+.twitter-preview {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+}
+.twitter-image {
+    width: 100%;
+    aspect-ratio: 1.91 / 1;
+    background-color: var(--main-bg);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+.twitter-content { padding: 1rem; }
+.twitter-url { font-size: 15px; color: var(--text-secondary); margin-bottom: 2px; }
+.twitter-title { font-size: 15px; font-weight: bold; color: var(--text-primary); margin-bottom: 4px; }
+.twitter-description { font-size: 15px; color: var(--text-secondary); line-height: 1.4; }
+
+/* --- Facebook Preview --- */
+/* Facebook has its own light/gray theme, so we style it statically and it works well on both backgrounds */
+.facebook-preview {
+    background-color: #f0f2f5;
+    border: 1px solid #dddfe2;
+    overflow: hidden;
+}
+body.dark-mode .facebook-preview {
+    background-color: #242526; /* Specific dark color for Facebook card */
+    border-color: #3e4042;
+}
+
+.facebook-image {
+    width: 100%;
+    aspect-ratio: 1.91 / 1;
+    background-color: #e9ebee;
+    background-size: cover;
+    background-position: center;
+}
+.facebook-content { padding: 0.75rem; }
+.facebook-url { font-size: 12px; text-transform: uppercase; color: #65676b; margin-bottom: 2px; }
+.facebook-title { font-size: 16px; font-weight: bold; color: #1d2129; margin-bottom: 2px; }
+.facebook-description { font-size: 14px; color: #65676b; line-height: 1.4; }
+
+body.dark-mode .facebook-content { background-color: #242526; }
+body.dark-mode .facebook-url { color: #b0b3b8; }
+body.dark-mode .facebook-title { color: #e4e6eb; }
+body.dark-mode .facebook-description { color: #b0b3b8; }

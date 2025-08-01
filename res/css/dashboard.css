@@ -1,0 +1,162 @@
+/* css/dashboard.css */
+
+/* --- Main Dashboard Grid Layout --- */
+.dashboard-main-grid {
+    display: grid;
+    /* On larger screens, create a 2-column layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* --- Widget Spanning for Dynamic Layout --- */
+.widget-span-2 {
+    /* This class makes a widget take up the full width of the 2-column grid */
+    grid-column: span 2;
+}
+
+/* --- Dashboard Widget Styling (Now fully theme-aware) --- */
+.dashboard-widget {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+.dashboard-widget:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.widget-header i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-right: 0.75rem;
+}
+.widget-header h5 {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* --- Quick Access Widget --- */
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+.quick-access-item {
+    background-color: var(--main-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background-color 0.2s, transform 0.2s;
+}
+.quick-access-item:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    transform: scale(1.02);
+}
+.quick-access-item i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 30px;
+    text-align: center;
+}
+
+/* --- Latest Snippet Widget --- */
+.latest-snippet-code {
+    background-color: var(--sidebar-bg);
+    color: var(--text-on-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 150px;
+    overflow-y: auto;
+    position: relative;
+}
+.copy-latest-snippet {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* --- Latest Palette Widget --- */
+.latest-palette-swatches {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+.swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+/* --- News Feed Widget --- */
+.news-feed-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.news-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.news-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.news-item a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.news-item a:hover {
+    color: var(--primary-color);
+}
+.news-item small {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+    /* On tablets and smaller, switch to a single-column layout */
+    .dashboard-main-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Reset any column spanning so each widget takes up one full row */
+    .widget-span-2 {
+        grid-column: auto;
+    }
+}
+@media (max-width: 576px) {
+    .quick-access-grid {
+        /* Stack quick access items on very small screens */
+        grid-template-columns: 1fr;
+    }
+}
