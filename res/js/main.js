@@ -8,7 +8,6 @@ import { initializeColorPalette } from './color.js';
 import { initializeLayoutVisualizer } from './layout.js';
 import { initializeComponentTester } from './tester.js';
 import { initializeMetaTagPreviewer } from './meta.js';
-import { initializeA11yChecker } from './a11y.js';
 
 // This function runs once the entire HTML document is ready.
 function onDOMLoaded() {
@@ -56,9 +55,6 @@ function onDOMLoaded() {
                     break;
                 case 'meta-tag-preview':
                     initializeMetaTagPreviewer();
-                    break;
-                case 'a11y-checker':
-                    initializeA11yChecker();
                     break;
             }
             // Mark the page as initialized so the script doesn't run again
