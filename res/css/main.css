@@ -2,7 +2,7 @@
 
 /* --- CSS Variables for Theming --- */
 :root {
-    --sidebar-width: 260px;
+    --sidebar-width: 300px;
     --primary-color: #3b82f6;
     --transition-speed: 0.3s;
     .card{
@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     flex-shrink: 0;
     position: fixed;
     top: 0;

@@ -1,0 +1,63 @@
+/* --- Main Type Scale UI --- */
+#typescale-visualizer .card.bg-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+#typescale-visualizer .control-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* --- Type Ramp Preview --- */
+.type-ramp-preview {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    background-color: var(--main-bg);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.ramp-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.ramp-item:last-child {
+    border-bottom: none;
+}
+.ramp-text {
+    flex-grow: 1;
+    color: var(--text-primary);
+    transition: font-size 0.2s ease-in-out;
+    margin-right: 1.5rem;
+    /* The font-size is set by JS */
+}
+.ramp-meta {
+    flex-shrink: 0;
+    text-align: right;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+.ramp-meta span {
+    display: block;
+}
+
+/* --- Code Output --- */
+.css-output-container pre {
+    background-color: var(--sidebar-bg) !important;
+    border-radius: 0.5rem;
+    margin-bottom: 0;
+    position: relative;
+    padding-top: 2.5rem; /* Space for the copy button */
+}
+.css-output-container .btn-copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}

@@ -35,3 +35,9 @@
     background-color: #ffffff; /* Default background for the iframe */
     transition: width 0.3s ease-in-out;
 }
+
+.CodeMirror,.CodeMirror-gutters {
+    border: 1px solid var(--bs-card-border-color);
+    background: var(--bs-card-bg);
+    color: var(--bs-card-color);
+}

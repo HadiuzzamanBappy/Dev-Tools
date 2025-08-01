@@ -1,0 +1,90 @@
+/* css/utility.css */
+
+/* --- Main Utility Builder UI --- */
+#css-utility-builder .card.bg-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#css-utility-builder .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+#css-utility-builder .control-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+#css-utility-builder h5 {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* --- Control Sections --- */
+.control-section {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.control-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.control-section h6 {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+/* New Grid for Module Toggles */
+.module-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+/* --- Interactive Preview --- */
+.utility-preview-pane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    background-color: var(--main-bg);
+    border: 1px solid var(--border-color);
+    flex-grow: 1;
+    min-height: 200px;
+}
+#utility-preview-element {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    /* We use a style tag in the head to apply generated classes */
+}
+
+/* --- Code Output (Fixed Height) --- */
+.code-output-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.code-output-wrapper .tab-content {
+    flex-grow: 1;
+    height: 350px; /* Fixed height for the code area */
+}
+.code-output-wrapper .tab-pane {
+    height: 100%;
+}
+.code-output-wrapper pre {
+    height: 100%;
+    background-color: var(--sidebar-bg) !important;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-bottom: 0;
+}

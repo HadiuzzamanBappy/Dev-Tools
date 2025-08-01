@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="/res/css/layout.css">
     <link rel="stylesheet" href="/res/css/tester.css">
     <link rel="stylesheet" href="/res/css/meta.css">
+    <link rel="stylesheet" href="/res/css/gradient.css">
+    <link rel="stylesheet" href="/res/css/typescale.css">
+    <link rel="stylesheet" href="/res/css/shadow.css">
+    <link rel="stylesheet" href="/res/css/units.css">
+    <link rel="stylesheet" href="/res/css/utility.css">
     <link rel="stylesheet" href="/res/css/dashboard.css">
 
 </head>
@@ -39,20 +44,43 @@
                 <h2>DevTools</h2>
             </div>
             <ul class="sidebar-nav">
+                <!-- Overview -->
                 <li><a href="#dashboard" class="nav-link active" data-target="dashboard"><i
                             class="fa-solid fa-table-columns"></i> Dashboard</a></li>
+
+                <!-- Typography Tools -->
+                <li><small class="text-secondary">Typography</small></li>
                 <li><a href="#font-previewer" class="nav-link" data-target="font-previewer"><i
                             class="fa-solid fa-font"></i> Font Previewer</a></li>
+                <li><a href="#typescale-visualizer" class="nav-link" data-target="typescale-visualizer"><i
+                            class="fa-solid fa-ruler"></i> Type Scale</a></li>
+
+                <!-- Design Tools -->
+                <li><small class="text-secondary">Design</small></li>
                 <li><a href="#color-palette" class="nav-link" data-target="color-palette"><i
                             class="fa-solid fa-palette"></i> Color Palette</a></li>
+                <li><a href="#gradient-maker" class="nav-link" data-target="gradient-maker"><i
+                            class="fa-solid fa-fill-drip"></i> Gradient Maker</a></li>
+                <li><a href="#box-shadow-generator" class="nav-link" data-target="box-shadow-generator"><i
+                            class="fa-solid fa-square-root-alt"></i> Shadow Generator</a></li>
+
+                <!-- Layout Tools -->
+                <li><small class="text-secondary">Layout</small></li>
+                <li><a href="#unit-system-generator" class="nav-link" data-target="unit-system-generator"><i
+                            class="fa-solid fa-arrows-left-right-to-line"></i> Units Converter</a></li>
                 <li><a href="#spacing-visualizer" class="nav-link" data-target="spacing-visualizer"><i
                             class="fa-solid fa-ruler-combined"></i> Layout Visualizer</a></li>
+
+                <!-- Development Tools -->
+                <li><small class="text-secondary">Development</small></li>
                 <li><a href="#component-tester" class="nav-link" data-target="component-tester"><i
                             class="fa-solid fa-code"></i> Component Tester</a></li>
                 <li><a href="#css-snippets" class="nav-link" data-target="css-snippets"><i
                             class="fa-solid fa-box-archive"></i> CSS Snippets</a></li>
                 <li><a href="#meta-tag-preview" class="nav-link" data-target="meta-tag-preview"><i
-                            class="fa-solid fa-share-nodes"></i> Meta Tag Previewer</a></li>
+                            class="fa-solid fa-share-nodes"></i> Meta Previewer</a></li>
+                <li><a href="#css-utility-builder" class="nav-link" data-target="css-utility-builder"><i
+                            class="fa-solid fa-box-archive"></i> Utility Classes</a></li>
             </ul>
         </div>
         <div class="theme-toggle-container">
@@ -405,17 +433,6 @@
                 <!-- ==== LEFT COLUMN: CONTROLS ==== -->
                 <div class="col-lg-3">
                     <div class="d-grid gap-4">
-                        <!-- Global Controls -->
-                        <div class="card bg-card">
-                            <div class="card-body">
-                                <label class="form-label fw-bold">Layout Mode</label>
-                                <select class="form-select control" id="layout-mode-select" data-key="mode">
-                                    <option value="flex">Flexbox</option>
-                                    <option value="grid">CSS Grid</option>
-                                </select>
-                            </div>
-                        </div>
-
                         <!-- Container Controls -->
                         <div class="card bg-card">
                             <div class="card-header">
@@ -496,23 +513,35 @@
 
                 <!-- ==== CENTER COLUMN: LIVE PREVIEW ==== -->
                 <div class="col-lg-6">
-                    <div class="visualizer-viewport-wrapper">
-                        <div class="visualizer-viewport">
-                            <div id="visualizer-container"></div>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center pt-3">
-                            <div class="me-3">Items: <strong id="item-count-label">4</strong></div>
-                            <div class="btn-group me-3">
-                                <button class="btn btn-outline-secondary" id="remove-item-btn">-</button>
-                                <button class="btn btn-outline-secondary" id="add-item-btn">+</button>
+                    <div class="d-grid gap-4">
+                        <!-- Global Controls -->
+                        <div class="card bg-card">
+                            <div class="card-body">
+                                <label class="form-label fw-bold">Layout Mode</label>
+                                <select class="form-select control" id="layout-mode-select" data-key="mode">
+                                    <option value="flex">Flexbox</option>
+                                    <option value="grid">CSS Grid</option>
+                                </select>
                             </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary responsive-btn" data-width="100%"><i
-                                        class="fa-solid fa-desktop"></i></button>
-                                <button class="btn btn-outline-secondary responsive-btn" data-width="768px"><i
-                                        class="fa-solid fa-tablet-alt"></i></button>
-                                <button class="btn btn-outline-secondary responsive-btn" data-width="425px"><i
-                                        class="fa-solid fa-mobile-alt"></i></button>
+                        </div>
+                        <div class="visualizer-viewport-wrapper">
+                            <div class="visualizer-viewport">
+                                <div id="visualizer-container"></div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center pt-3">
+                                <div class="me-3">Items: <strong id="item-count-label">4</strong></div>
+                                <div class="btn-group me-3">
+                                    <button class="btn btn-outline-secondary" id="remove-item-btn">-</button>
+                                    <button class="btn btn-outline-secondary" id="add-item-btn">+</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary responsive-btn" data-width="100%"><i
+                                            class="fa-solid fa-desktop"></i></button>
+                                    <button class="btn btn-outline-secondary responsive-btn" data-width="768px"><i
+                                            class="fa-solid fa-tablet-alt"></i></button>
+                                    <button class="btn btn-outline-secondary responsive-btn" data-width="425px"><i
+                                            class="fa-solid fa-mobile-alt"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -691,6 +720,557 @@
             </div>
         </div>
 
+        <!-- ===== PAGE: Gradient Maker ===== -->
+        <div id="gradient-maker" class="page">
+            <div class="page-header">
+                <h1>Gradient Maker</h1>
+            </div>
+
+            <div class="row g-4">
+                <!-- ==== TOP ROW - COLUMN 1: PREVIEW & OPTIONS ==== -->
+                <div class="col-lg-7">
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <select id="gradient-type-select" class="form-select" style="width: auto;">
+                                    <option value="linear-gradient">Linear</option>
+                                    <option value="radial-gradient">Radial</option>
+                                    <option value="conic-gradient">Conic</option>
+                                </select>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="gradient-noise-toggle">
+                                    <label class="form-check-label" for="gradient-noise-toggle">Add Noise</label>
+                                </div>
+                                <button id="randomize-gradient-btn" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Randomize
+                                </button>
+                            </div>
+                            <div id="gradient-canvas-preview">
+                                <div id="gradient-noise-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== TOP ROW - COLUMN 2: ANGLE & STOPS ==== -->
+                <div class="col-lg-5">
+                    <div class="card bg-card">
+                        <div class="card-body justify-content-center">
+                            <div class="text-center">
+                                <label class="control-label">Angle: <span id="angle-value">90°</span></label>
+                                <div class="angle-dial-wrapper">
+                                    <div class="angle-dial">
+                                        <div id="angle-dial-line"></div>
+                                        <div id="angle-dial-handle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <label class="control-label">Color Stops (Click bar to add)</label>
+                                <div class="gradient-bar-wrapper">
+                                    <div class="gradient-bar"></div>
+                                    <!-- Stops are generated by JS -->
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mt-3">
+                                    <label for="gradient-stop-color" class="control-label mb-0">Selected:</label>
+                                    <input type="color" id="gradient-stop-color" value="#ff7e5f">
+                                    <button class="btn btn-sm btn-outline-danger ms-auto" id="remove-stop-btn">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== BOTTOM ROW: CSS OUTPUT (FULL WIDTH) ==== -->
+                <div class="col-12">
+                    <div class="card bg-card">
+                        <div class="card-header">
+                            <h5>Generated CSS</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="gradient-css-output">
+                                <textarea id="gradient-css-output" class="form-control" rows="5" readonly></textarea>
+                                <button id="copy-gradient-css-btn" class="btn btn-sm btn-copy" title="Copy CSS">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PAGE: Type Scale Visualizer ===== -->
+        <div id="typescale-visualizer" class="page">
+            <div class="page-header">
+                <h1>Type Scale Visualizer</h1>
+            </div>
+
+            <div class="row g-4">
+                <!-- ==== LEFT COLUMN: CONTROLS & EXPORT ==== -->
+                <div class="col-lg-4">
+                    <div class="d-grid gap-4">
+                        <!-- Settings Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-6"><label class="control-label">Base Size (px)</label><input
+                                            type="number" class="form-control" id="ts-base-size" value="16"></div>
+                                    <div class="col-6"><label class="control-label">Scale Ratio</label><select
+                                            class="form-select" id="ts-scale-ratio">
+                                            <option value="major-third" selected>Major Third (1.250)</option>
+                                            <option value="minor-third">Minor Third (1.200)</option>
+                                            <option value="perfect-fourth">Perfect Fourth (1.333)</option>
+                                            <option value="golden-ratio">Golden Ratio (1.618)</option>
+                                            <option value="custom">Custom</option>
+                                        </select></div>
+                                </div>
+                                <input type="number" class="form-control mt-2" id="ts-custom-ratio" value="1.250"
+                                    step="0.001" hidden>
+                                <hr>
+                                <div class="mb-3"><label class="control-label">Font Family</label><select
+                                        class="form-select" id="ts-font-family">
+                                        <option>Inter</option>
+                                        <option>Roboto</option>
+                                        <option>Lora</option>
+                                        <option>Source Sans Pro</option>
+                                        <option>Roboto Mono</option>
+                                    </select></div>
+                                <div><label class="control-label">Preview Text</label><textarea id="ts-preview-text"
+                                        class="form-control"
+                                        rows="3">Almost before we knew it, we had left the ground.</textarea></div>
+                            </div>
+                        </div>
+
+                        <!-- Export Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Export CSS</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-pills mb-3">
+                                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#vars-panel">CSS Variables</button></li>
+                                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#classes-panel">Utility Classes</button></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="vars-panel">
+                                        <div class="css-output-container">
+                                            <pre><code class="language-css" id="css-vars-output"></code></pre><button
+                                                class="btn btn-sm btn-copy" data-target="#css-vars-output"
+                                                title="Copy"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="classes-panel">
+                                        <div class="css-output-container">
+                                            <pre><code class="language-css" id="css-classes-output"></code></pre><button
+                                                class="btn btn-sm btn-copy" data-target="#css-classes-output"
+                                                title="Copy"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== RIGHT COLUMN: LIVE PREVIEW ==== -->
+                <div class="col-lg-8">
+                    <div class="type-ramp-preview">
+                        <!-- Type ramp items are generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PAGE: Box Shadow Generator ===== -->
+        <div id="box-shadow-generator" class="page">
+            <div class="page-header">
+                <h1>Box Shadow Generator</h1>
+            </div>
+
+            <div class="row g-4">
+                <!-- ==== TOP ROW - COLUMN 1: PRESETS & LAYERS ==== -->
+                <div class="col-lg-6">
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <label class="control-label">Start with a Preset</label>
+                            <div class="preset-grid mb-4">
+                                <div class="preset-btn" data-preset="soft">
+                                    <div class="preset-box"
+                                        style="box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1);">
+                                    </div>
+                                    <span>Soft UI</span>
+                                </div>
+                                <div class="preset-btn" data-preset="material">
+                                    <div class="preset-box"
+                                        style="box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);">
+                                    </div>
+                                    <span>Material</span>
+                                </div>
+                                <div class="preset-btn" data-preset="neumorphic">
+                                    <div class="preset-box"
+                                        style="background: #e0e0e0; box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;">
+                                    </div>
+                                    <span>Neumorphic</span>
+                                </div>
+                            </div>
+
+                            <label class="control-label">Shadow Layers</label>
+                            <ul class="list-group list-group-flush shadow-layers-list">
+                                <!-- Layers are generated by JS -->
+                            </ul>
+                            <div class="d-flex gap-2 pt-3">
+                                <button class="btn btn-primary w-100" id="add-shadow-layer-btn"><i
+                                        class="fa-solid fa-plus me-2"></i>Add Layer</button>
+                                <button class="btn btn-outline-danger w-100" id="remove-shadow-layer-btn"><i
+                                        class="fa-solid fa-trash me-2"></i>Remove Layer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== TOP ROW - COLUMN 2: LIVE PREVIEW & EXPORT ==== -->
+                <div class="col-lg-6">
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <div class="shadow-preview-pane" id="shadow-preview-pane"
+                                style="background-color: #f1f5f9;">
+                                <div id="shadow-preview-element" style="background-color: #ffffff;"></div>
+                            </div>
+                            <div class="row g-3 mt-2">
+                                <div class="col-6"><label class="control-label">Pane Color</label><input type="color"
+                                        class="form-control form-control-color w-100" id="shadow-bg-color"
+                                        value="#f1f5f9"></div>
+                                <div class="col-6"><label class="control-label">Element Color</label><input type="color"
+                                        class="form-control form-control-color w-100" id="shadow-element-color"
+                                        value="#ffffff"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== BOTTOM ROW: ACTIVE LAYER CONTROLS & CSS OUTPUT ==== -->
+                <div class="col-12">
+                    <div class="card bg-card">
+                        <div class="card-header">
+                            <h5>Active Layer Properties</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-lg-8">
+                                    <div class="row g-3">
+                                        <div class="col-md-6"><label class="control-label">Offset X (px)</label><input
+                                                type="range" class="form-range control" id="shadow-offset-x" min="-50"
+                                                max="50" value="10"></div>
+                                        <div class="col-md-6"><label class="control-label">Offset Y (px)</label><input
+                                                type="range" class="form-range control" id="shadow-offset-y" min="-50"
+                                                max="50" value="10"></div>
+                                        <div class="col-md-6"><label class="control-label">Blur (px)</label><input
+                                                type="range" class="form-range control" id="shadow-blur" min="0"
+                                                max="100" value="20"></div>
+                                        <div class="col-md-6"><label class="control-label">Spread (px)</label><input
+                                                type="range" class="form-range control" id="shadow-spread" min="-50"
+                                                max="50" value="0"></div>
+                                    </div>
+                                    <hr>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-4 col-md-3"><label class="control-label">Color</label><input
+                                                type="color" class="form-control form-control-color w-100 control"
+                                                id="shadow-color" value="#000000"></div>
+                                        <div class="col-8 col-md-6"><label class="control-label">Opacity</label><input
+                                                type="range" class="form-range control" id="shadow-opacity" min="0"
+                                                max="1" step="0.01" value="0.1"></div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-check form-switch pt-3"><input
+                                                    class="form-check-input control" type="checkbox"
+                                                    id="shadow-inset-toggle"><label class="form-check-label"
+                                                    for="shadow-inset-toggle">Inset</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 shadow-css-output d-flex flex-column">
+                                    <label class="control-label">Generated CSS</label>
+                                    <textarea id="shadow-css-output" class="form-control" rows="4" readonly></textarea>
+                                    <button id="copy-shadow-css-btn" class="btn btn-sm btn-copy" title="Copy CSS"><i
+                                            class="fa-regular fa-copy"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PAGE: Unit System Generator ===== -->
+        <div id="unit-system-generator" class="page">
+            <div class="page-header">
+                <h1>Unit System Generator</h1>
+            </div>
+
+            <div class="row g-4">
+                <!-- ==== LEFT COLUMN: CONTROLS ==== -->
+                <div class="col-lg-5">
+                    <div class="d-grid gap-4">
+                        <!-- Spacing & Sizing Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Spacing & Sizing System</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4"><label class="control-label">Base (px)</label><input
+                                            type="number" class="form-control" id="spacing-base-size" value="8"></div>
+                                    <div class="col-md-4"><label class="control-label">Multiplier</label><input
+                                            type="number" class="form-control" id="spacing-multiplier" value="1.5"
+                                            step="0.05"></div>
+                                    <div class="col-md-4"><label class="control-label">Prefix</label><input type="text"
+                                            class="form-control" id="spacing-prefix" value="sp"></div>
+                                </div>
+                                <hr>
+                                <label class="control-label">Generated Scale</label>
+                                <div class="table-responsive spacing-scale-table">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Step</th>
+                                                <th>Variable</th>
+                                                <th>px</th>
+                                                <th>rem</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="spacing-scale-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Border Radius Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Border Radius System</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-8"><label class="control-label">All Corners</label><input
+                                            type="range" class="form-range" id="radius-all" min="0" max="100"
+                                            value="16"></div>
+                                    <div class="col-md-4"><label class="control-label">Unit</label><select
+                                            id="radius-unit" class="form-select">
+                                            <option>px</option>
+                                            <option>%</option>
+                                            <option>rem</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== RIGHT COLUMN: PREVIEW & EXPORT ==== -->
+                <div class="col-lg-7">
+                    <div class="d-grid gap-4">
+                        <!-- Live Preview Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Live Preview</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="unit-preview-pane">
+                                    <input type="number" class="corner-input corner-tl" value="16" title="Top-Left">
+                                    <input type="number" class="corner-input corner-tr" value="16" title="Top-Right">
+                                    <div id="unit-preview-box">Box Model</div>
+                                    <input type="number" class="corner-input corner-bl" value="16" title="Bottom-Left">
+                                    <input type="number" class="corner-input corner-br" value="16" title="Bottom-Right">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Code Export Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>Export Code</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-pills mb-3">
+                                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#unit-vars-panel">CSS Variables</button></li>
+                                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#unit-classes-panel">Utility Classes</button></li>
+                                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#unit-tailwind-panel">Tailwind Config</button></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="unit-vars-panel">
+                                        <div class="css-output-container">
+                                            <pre><code class="language-css" id="css-vars-output"></code></pre><button
+                                                class="btn btn-sm btn-copy body-text" data-target="#css-vars-output"
+                                                title="Copy"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="unit-classes-panel">
+                                        <div class="css-output-container">
+                                            <pre><code class="language-css" id="utility-classes-output"></code></pre>
+                                            <button class="btn btn-sm btn-copy body-text"
+                                                data-target="#utility-classes-output" title="Copy"><i
+                                                    class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="unit-tailwind-panel">
+                                        <div class="css-output-container">
+                                            <pre><code class="language-js" id="tailwind-config-output"></code></pre>
+                                            <button class="btn btn-sm btn-copy body-text"
+                                                data-target="#tailwind-config-output" title="Copy"><i
+                                                    class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PAGE: CSS Utility Builder ===== -->
+        <div id="css-utility-builder" class="page">
+            <div class="page-header">
+                <h1>CSS Utility Builder</h1>
+            </div>
+
+            <div class="row g-4">
+                <!-- ==== LEFT COLUMN: CONTROLS ==== -->
+                <div class="col-lg-4">
+                    <div id="utility-controls" class="d-grid gap-4">
+                        <!-- Modules Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>1. Select Modules</h5>
+                            </div>
+                            <div class="card-body module-grid">
+                                <div class="form-check form-switch"><input class="form-check-input module-toggle"
+                                        type="checkbox" id="module-spacing" data-module="spacing" checked><label
+                                        for="module-spacing">Spacing
+                                        (p, m)</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input module-toggle"
+                                        type="checkbox" id="module-sizing" data-module="sizing" checked><label
+                                        for="module-sizing">Sizing (w,
+                                        h)</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input module-toggle"
+                                        type="checkbox" id="module-typography" data-module="typography" checked><label
+                                        for="module-typography">Typography</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input module-toggle"
+                                        type="checkbox" id="module-borders" data-module="borders" checked><label
+                                        for="module-borders">Borders</label></div>
+                                <div class="form-check form-switch"><input class="form-check-input module-toggle"
+                                        type="checkbox" id="module-flexbox" data-module="flexbox" checked><label
+                                        for="module-flexbox">Flexbox</label></div>
+                            </div>
+                        </div>
+
+                        <!-- Design System Settings Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>2. Define Your System</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="control-section">
+                                    <h6>Spacing</h6>
+                                    <div class="row g-2">
+                                        <div class="col-6"><label class="control-label">Base (px)</label><input
+                                                type="number" class="form-control setting-input" id="setting-base-unit"
+                                                data-setting="baseUnit" value="4"></div>
+                                        <div class="col-6"><label class="control-label">Steps</label><input
+                                                type="number" class="form-control setting-input"
+                                                id="setting-spacing-steps" data-setting="spacingSteps" value="12"></div>
+                                    </div>
+                                </div>
+                                <div class="control-section">
+                                    <h6>Typography</h6>
+                                    <div class="row g-2">
+                                        <div class="col-6"><label class="control-label">Base (px)</label><input
+                                                type="number" class="form-control setting-input"
+                                                id="setting-font-size-base" data-setting="fontSizeBase" value="16">
+                                        </div>
+                                        <div class="col-6"><label class="control-label">Ratio</label><input
+                                                type="number" class="form-control setting-input"
+                                                id="setting-font-size-ratio" data-setting="fontSizeRatio" value="1.25"
+                                                step="0.01"></div>
+                                    </div>
+                                </div>
+                                <div class="control-section">
+                                    <h6>Borders</h6><label class="control-label">Base (px)</label><input type="number"
+                                        class="form-control setting-input" id="setting-border-radius-base"
+                                        data-setting="borderRadiusBase" value="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==== RIGHT COLUMN: PREVIEW & EXPORT ==== -->
+                <div class="col-lg-8">
+                    <div class="d-grid gap-4">
+                        <!-- Live Preview Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>3. Live Preview</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="utility-preview-pane mb-3">
+                                    <div id="utility-preview-element" class="utility-preview-element">Hello World</div>
+                                </div>
+                                <label class="control-label">Apply generated classes to test:</label>
+                                <input type="text" class="form-control font-monospace" id="utility-preview-class-input"
+                                    placeholder="e.g., p-4 m-2 rounded-2 fs-3">
+                            </div>
+                        </div>
+
+                        <!-- Code Export Card -->
+                        <div class="card bg-card">
+                            <div class="card-header">
+                                <h5>4. Export Files</h5>
+                            </div>
+                            <div class="card-body code-output-wrapper">
+                                <ul class="nav nav-pills mb-3" id="export-tabs">
+                                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#css-panel">CSS</button></li>
+                                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#scss-panel">SCSS</button></li>
+                                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#json-panel">JSON Tokens</button></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="css-panel">
+                                        <pre><code class="language-css" id="output-code-css"></code></pre>
+                                    </div>
+                                    <div class="tab-pane fade" id="scss-panel">
+                                        <pre><code class="language-scss" id="output-code-scss"></code></pre>
+                                    </div>
+                                    <div class="tab-pane fade" id="json-panel">
+                                        <pre><code class="language-js" id="output-code-json"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex gap-2">
+                                <button class="btn btn-outline-secondary w-50" id="copy-utility-code-btn"><i
+                                        class="fa-regular fa-copy me-2"></i>Copy Code</button>
+                                <button class="btn btn-primary w-50" id="download-utility-files-btn"><i
+                                        class="fa-solid fa-download me-2"></i>Download Files (.zip)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- External JS Libraries -->
@@ -708,15 +1288,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.8.4/axe.min.js"></script>
 
-    <!-- Your Custom JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- Your Custom JS -->
+    <script src="/res/js/dashboard.js" type="module"></script>
     <script src="/res/js/snippet.js" type="module"></script>
     <script src="/res/js/font.js" type="module"></script>
     <script src="/res/js/color.js" type="module"></script>
     <script src="/res/js/layout.js" type="module"></script>
     <script src="/res/js/tester.js" type="module"></script>
     <script src="/res/js/meta.js" type="module"></script>
-    <script src="/res/js/dashboard.js" type="module"></script>
+    <script src="/res/js/gradient.js" type="module"></script>
+    <script src="/res/js/typescale.js" type="module"></script>
+    <script src="/res/js/shadow.js" type="module"></script>
+    <script src="/res/js/units.js" type="module"></script>
+    <script src="/res/js/utility.js" type="module"></script>
     <script src="/res/js/main.js" type="module"></script>
 </body>
 
