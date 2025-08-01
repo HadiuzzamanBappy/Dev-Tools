@@ -4,7 +4,7 @@ A modern, responsive, and feature-rich single-page dashboard designed for fronte
 
 🌐 **Live Demo & Screenshot**  
 <br>
-➡️ [Replace with your live site link]  
+➡️ [live link] (https://dev-tools-bro.vercel.app/)
 <br>
 ![Dashboard Screenshot](/res/img/image.png)
 
